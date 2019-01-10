@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RealmSharp
 {
-    class Graveyard
+    public class Graveyard
     {
     }
 }

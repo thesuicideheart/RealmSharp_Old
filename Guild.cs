@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RealmSharp
 {
-    class Guild
+    public class Guild
     {
     }
 }

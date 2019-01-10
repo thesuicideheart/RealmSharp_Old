@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RealmSharp
 {
-    public class GraveyardItem
+    public class CharacterStats
     {
     }
 }
