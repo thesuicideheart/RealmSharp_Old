@@ -39,6 +39,12 @@ namespace RealmSharp
                 json = stream.ReadToEnd( );
             }
 
+            //TODO: 
+            // Load graveyard
+            // Load guild history
+            // Load name history
+            // Load pets
+
             var obj = JObject.Parse( json );
 
             return new Player( obj );
