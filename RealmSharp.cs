@@ -27,27 +27,75 @@ namespace RealmSharp
             return realmSharp;
         }
 
+
+
         public Player LoadPlayer ( string name )
         {
-
-            WebRequest req = WebRequest.Create( CreateUserLink( name ) );
-
-            var res = req.GetResponse( );
-            string json = "";
-            using ( StreamReader stream = new StreamReader( res.GetResponseStream( ) ) )
+            Player player = null;
+            if ( UseTiffit )
             {
-                json = stream.ReadToEnd( );
+                player = new Player( Utils.LoadJObjectFromWebAPI( CreateUserLink( name ) ) );
+            }
+            else
+            {
+                //player = Player.ScrapePlayer( name );
+            }
+            return player;
+        }
+
+        public Graveyard LoadGraveyard ( )
+        {
+            var graveyard = new Graveyard( );
+
+
+            return graveyard;
+        }
+
+        public Guild LoadGuild ( string guildName )
+        {
+            var guild = new Guild( );
+
+            if ( UseTiffit )
+            {
+                var obj = Utils.LoadJObjectFromWebAPI( CreateGuildLink( guildName ) );
+
+                guild.SetName( obj [ "name" ].ToString( ) );
+                guild.SetCharacters( int.Parse( obj [ "characters" ].ToString( ) ) );
+
+                guild.SetFame( int.Parse( obj [ "fame" ] [ "amount" ].ToString( ) ) );
+                guild.SetFameRank( obj [ "fame" ] [ "rank" ].ToString( ) );
+
+                guild.SetExp( int.Parse( obj [ "xp" ] [ "amount" ].ToString( ) ) );
+                guild.SetExpRank( obj [ "xp" ] [ "rank" ].ToString( ) );
+
+                guild.SetMostActiveServer( obj [ "most_active" ] [ "server" ].ToString( ) );
+                guild.SetMostActiveServerRank( obj [ "most_active" ] [ "rank" ].ToString( ) );
+
+                for ( int i = 0 ; i < obj [ "desc" ].Count( ) ; i++ )
+                {
+                    guild.SetDescriptionLine( i, obj [ "desc" ] [ i ].ToString( ) );
+                }
+
+                for ( int i = 0 ; i < obj [ "members" ].Count( ) ; i++ )
+                {
+                    var guildMember = new GuildMember( );
+                    //TODO: Load in guild member. 
+                    guild.GuildMembers.Add( guildMember );
+                }
+
             }
 
-            //TODO: 
-            // Load graveyard
-            // Load guild history
-            // Load name history
-            // Load pets
 
-            var obj = JObject.Parse( json );
+            return guild;
+        }
 
-            return new Player( obj );
+        private string CreateGuildLink ( string guild )
+        {
+            string api = "http://www.tiffit.net/RealmInfo/api/guild?g={guild}&f=";
+            api = api.Replace( "{guild}", guild );
+            Console.WriteLine( api );
+            return api;
+
         }
 
         private string CreateUserLink ( string user )

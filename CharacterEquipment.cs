@@ -17,12 +17,21 @@ namespace RealmSharp
 
         public CharacterEquipment ( JToken obj )
         {
-            Weapon = obj [ 0 ].ToString( );
-            Ability = obj [ 1 ].ToString( );
-            Armor = obj [ 2 ].ToString( );
-            Ring = obj [ 3 ].ToString( );
-            //TODO: Implement backpack thingy?
-            //HasBackpack = obj [ 4 ].ToString( ).ToLower( ) == "backpack";
+            List<string> equip = new List<string>( );
+            for ( int i = 0 ; i < obj.Count( ) ; i++ )
+            {
+                equip.Add( obj [ i ].ToString( ) );
+            }
+
+            Weapon = equip [ 0 ];
+            Ability = equip [ 1 ];
+            Armor = equip [ 2 ];
+            Ring = equip [ 3 ];
+            if(equip.Count() >= 5 )
+            {
+                HasBackpack = equip[ 4 ].ToLower( ) == "backpack";
+
+            }
         }
 
     }

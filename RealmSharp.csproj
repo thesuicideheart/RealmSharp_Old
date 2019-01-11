@@ -53,10 +53,12 @@
     <Compile Include="Guild.cs" />
     <Compile Include="GuildHistory.cs" />
     <Compile Include="GuildHistoryItem.cs" />
+    <Compile Include="GuildMember.cs" />
     <Compile Include="NameHistoryItem.cs" />
     <Compile Include="Pet.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utils.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="RealmSharp.cs" />

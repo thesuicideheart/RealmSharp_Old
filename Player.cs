@@ -24,9 +24,7 @@ namespace RealmSharp
         public string Name { get; private set; }
         public string GuildRank { get; private set; }
         public string AccountCreatedDate { get; private set; }
-        public string DescriptionLine1 { get; private set; }
-        public string DescriptionLine2 { get; private set; }
-        public string DescriptionLine3 { get; private set; }
+        public string [ ] Description { get; private set; } = new string [ 3 ];
         public string Guild { get; private set; }
 
         public List<Character> Characters { get; private set; } = new List<Character>( );
@@ -42,14 +40,15 @@ namespace RealmSharp
             GuildRank = obj [ "guild_rank" ].ToString( );
             Guild = obj [ "guild" ].ToString( );
 
-            DescriptionLine1 = obj [ "description" ] [ 0 ].ToString( );
-            DescriptionLine2 = obj [ "description" ] [ 1 ].ToString( );
-            DescriptionLine3 = obj [ "description" ] [ 2 ].ToString( );
+            for ( int i = 0 ; i < obj [ "description" ].Count( ) ; i++ )
+            {
+                Description [ i ] = obj [ "description" ] [ i ].ToString( );
+            }
 
             AccountCreatedDate = obj [ "created" ].ToString( );
 
             var chars = obj [ "characters" ];
-            foreach(var elem in chars )
+            foreach ( var elem in chars )
             {
                 var chr = new Character( elem );
                 Characters.Add( chr );
@@ -63,9 +62,16 @@ namespace RealmSharp
 
             string chrString = "";
 
-            foreach(var chr in Characters )
+            foreach ( var chr in Characters )
             {
                 chrString += chr.ToString( );
+            }
+
+            string descString = "";
+
+            for ( int i = 0 ; i < Description.Length ; i++ )
+            {
+                descString += $"\tLine {i+1}: {Description[i]}\n";
             }
 
             return $"Name: {Name}\n" +
@@ -78,9 +84,7 @@ namespace RealmSharp
                 $"Guild Rank: {GuildRank}\n" +
                 $"Created: {AccountCreatedDate}\n" +
                 $"Description:\n" +
-                $"\tLine 1: {DescriptionLine1}\n" +
-                $"\tLine 2: {DescriptionLine2}\n" +
-                $"\tLine 3: {DescriptionLine3}\n" +
+                $"{descString}\n" +
                 $"\n" +
                 $"Characters: \n" +
                 $"{chrString}";
