@@ -11,7 +11,14 @@ namespace RealmSharp
 {
     public class Utils
     {
-        public static JObject LoadJObjectFromWebAPI(string API )
+        public static string GetGraveyardURL ( string player )
+        {
+            var url = "https://www.realmeye.com/graveyard-of-player/{player}";
+            url = url.Replace( "{player}", player );
+            return url;
+        }
+
+        public static JObject LoadJObjectFromWebAPI ( string API )
         {
             WebRequest req = WebRequest.Create( API );
 

@@ -26,7 +26,7 @@ namespace RealmSharp
             Name = name;
         }
 
-        internal void SetDescriptionLine(int line, string val )
+        internal void SetDescriptionLine ( int line, string val )
         {
             if ( line < 0 ) line = 0;
             if ( line >= 3 ) line = 2;
@@ -66,6 +66,37 @@ namespace RealmSharp
         internal void SetMostActiveServerRank ( string rank )
         {
             MostActiveServerRank = rank;
+        }
+
+        public override string ToString ( )
+        {
+
+            string descStr = "";
+            string gmStr = "";
+
+
+            for ( int i = 0 ; i < Description.Length ; i++ )
+            {
+                descStr += $"\tLine {i + 1}: {Description [ i ]}\n";
+            }
+
+            for ( int i = 0 ; i < GuildMembers.Count( ) ; i++ )
+            {
+                gmStr += 
+                    $"Guild member {GuildMembers [ i ].Name}\n"+
+                    $"\t{GuildMembers[i].ToString(true)}\n";
+            }
+
+            return
+                $"Name: {Name}\n" +
+                $"Characters: {Characters}\n" +
+                $"Fame: {Fame} ({FameRank})\n" +
+                $"Exp: {Exp} ({ExpRank})\n" +
+                $"Description: \n" +
+                $"{descStr}\n" +
+                $"Guild members: \n" +
+                $"{gmStr}\n" +
+                $"";
         }
 
     }

@@ -9,11 +9,11 @@ namespace RealmSharp
 {
     public class CharacterEquipment
     {
-        public string Weapon { get; private set; }
-        public string Ability { get; private set; }
-        public string Armor { get; private set; }
-        public string Ring { get; private set; }
-        public bool HasBackpack { get; private set; }
+        public string Weapon { get; internal set; }
+        public string Ability { get; internal set; }
+        public string Armor { get; internal set; }
+        public string Ring { get; internal set; }
+        public bool HasBackpack { get; internal set; }
 
         public CharacterEquipment ( JToken obj )
         {
@@ -32,6 +32,20 @@ namespace RealmSharp
                 HasBackpack = equip[ 4 ].ToLower( ) == "backpack";
 
             }
+        }
+
+        public CharacterEquipment ( )
+        {
+
+        }
+
+        public override string ToString ( )
+        {
+            return 
+                $"Weapon: {Weapon}\n" +
+                $"Ability: {Ability}\n" +
+                $"Armor: {Armor}\n" +
+                $"Ring: {Ring}";
         }
 
     }
