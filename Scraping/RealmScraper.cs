@@ -106,9 +106,14 @@ namespace RealmSharp.Scraping
                 var rarityNode = row.SelectSingleNode( "td[4]" );
                 var placeNode = row.SelectSingleNode( "td[5]" );
 
-                var ab1Node = row.SelectSingleNode( "td[6]/span[1]" );
-                var ab2Node = row.SelectSingleNode( "td[8]/span[1]" );
-                var ab3Node = row.SelectSingleNode( "td[10]/span[1]" );
+                var ab1Name = row.SelectSingleNode( "td[6]/span[1]" );
+                var ab2Name = row.SelectSingleNode( "td[8]/span[1]" );
+                var ab3Name = row.SelectSingleNode( "td[10]/span[1]" );
+
+                //var ab1Node = row.SelectSingleNode( "td[7]/span[1]" );
+                //var ab2Node = row.SelectSingleNode( "td[10]/span[1]" );
+                //var ab3Node = row.SelectSingleNode( "td[11]/span[1]" );
+
 
                 pet.PetSkin = skinNode.GetAttributeValue( "title" );
                 pet.Name = nameNode.InnerText;
@@ -116,21 +121,18 @@ namespace RealmSharp.Scraping
                 pet.Rarity = rarityNode.InnerText;
                 pet.Place = row.SelectSingleNode( "td[5]" ).InnerText + "th";
                 pet.Stats = new PetStats( );
-                pet.Stats.Ability1 = ab1Node.InnerText;
-                pet.Stats.Ability2 = ab2Node.InnerText;
-                pet.Stats.Ability3 = ab3Node.InnerText;
+                pet.Stats.Ability1 = ab1Name.InnerText;
+                pet.Stats.Ability2 = ab2Name.InnerText;
+                pet.Stats.Ability3 = ab3Name.InnerText;
+                //pet.Stats.Ability1Level = int.Parse( ab1Node.InnerText );
+                //pet.Stats.Ability2Level = int.Parse( ab2Node.InnerText );
+                //pet.Stats.Ability3Level = int.Parse( ab3Node.InnerText );
 
-                Console.WriteLine( row.SelectSingleNode( "td[6]/span[1]" ).OuterHtml );
-
-                break;
-                //petYard.Add( pet );
+                petYard.Add( pet );
 
             }
             return petYard;
-
-
-            //TODO: Implement this.
-
+            
         }
 
         internal static ScrapingBrowser SetupBrowser ( )
