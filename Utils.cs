@@ -18,6 +18,13 @@ namespace RealmSharp
             return url;
         }
 
+        public static string GetPetyardURL(string player )
+        {
+            var url = "https://www.realmeye.com/pets-of/{player}";
+            url = url.Replace( "{player}", player );
+            return url;
+        }
+
         public static JObject LoadJObjectFromWebAPI ( string API )
         {
             WebRequest req = WebRequest.Create( API );

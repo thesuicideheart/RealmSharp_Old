@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json.Linq;
+﻿using HtmlAgilityPack;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +13,11 @@ namespace RealmSharp
         internal static string GetValue ( this JToken obj, object key )
         {
             return obj [ key ].ToString();
+        }
+
+        internal static bool IsNodeNotNull(this HtmlNode node)
+        {
+            return node != null;
         }
     }
 }

@@ -41,10 +41,6 @@ namespace RealmSharp
             return realmSharp;
         }
 
-
-
-
-
         public Player LoadPlayer ( string name )
         {
             Player player = null;
@@ -66,6 +62,15 @@ namespace RealmSharp
             graveyard = RealmScraper.ScrapeGraveyard( player, graveCount );
 
             return graveyard;
+        }
+
+        public PetYard LoadPetyard(string player )
+        {
+            var petyard = new PetYard( player );
+
+            petyard = RealmScraper.ScrapePetyard( player );
+
+            return petyard;
         }
 
         public Guild LoadGuild ( string guildName )
