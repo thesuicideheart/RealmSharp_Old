@@ -16,18 +16,18 @@ namespace RealmSharp
             }
         }
 
-        public int Skins { get; private set; }
-        public int AliveFame { get; private set; }
-        public int AliveExp { get; private set; }
-        public int Rank { get; private set; }
-        public int AccountFame { get; private set; }
-        public string Name { get; private set; }
-        public string GuildRank { get; private set; }
-        public string AccountCreatedDate { get; private set; }
-        public string [ ] Description { get; private set; } = new string [ 3 ];
-        public string Guild { get; private set; }
+        public int Skins { get; internal set; }
+        public int AliveFame { get; internal set; }
+        public int AliveExp { get; internal set; }
+        public int Rank { get; internal set; }
+        public int AccountFame { get; internal set; }
+        public string Name { get; internal set; }
+        public string GuildRank { get; internal set; }
+        public string AccountCreatedDate { get; internal set; }
+        public string [ ] Description { get; internal set; } = new string [ 3 ];
+        public string Guild { get; internal set; }
 
-        public List<Character> Characters { get; private set; } = new List<Character>( );
+        public List<Character> Characters { get; internal set; } = new List<Character>( );
 
         public Player ( JObject obj )
         {
@@ -56,6 +56,10 @@ namespace RealmSharp
 
         }
 
+        public Player ( )
+        {
+
+        }
 
         public override string ToString ( )
         {

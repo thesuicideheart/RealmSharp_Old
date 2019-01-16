@@ -9,7 +9,7 @@ namespace RealmSharp
     public class Pet
     {
         public string Name { get; internal set; }
-        public string PetSkin { get; internal set; }
+        //public string PetSkin { get; internal set; }
         public string Rarity { get; internal set; }
         public string Family { get; internal set; }
         public string Place { get; internal set; }
@@ -22,12 +22,12 @@ namespace RealmSharp
         {
             return 
                 $"Name: {Name}\n" +
-                $"Pet Skin: {PetSkin}\n" +
+                //$"Pet Skin: {PetSkin}\n" +
                 $"Rarity: {Rarity}\n" +
                 $"Family: {Family}\n" +
                 $"Place: {Place}\n" +
                 $"Max level: {MaxAbilityLevel}\n" +
-                $"Stats: {Stats}\n";
+                $"{Stats}\n";
         }
 
     }
@@ -57,7 +57,7 @@ namespace RealmSharp
         public override string ToString ( )
         {
             return
-                $"Stats: " +
+                $"Stats: \n" +
                 $"Ability 1: {Ability1}\n" +
                 $"Level: {Ability1Level}\n" +
                 //$"Points: {Ability1Points}\n" +

@@ -51,6 +51,7 @@ namespace RealmSharp
             else
             {
                 //player = Player.ScrapePlayer( name );
+                player = RealmScraper.ScrapePlayerPage( name );
             }
             return player;
         }
@@ -64,7 +65,7 @@ namespace RealmSharp
             return graveyard;
         }
 
-        public PetYard LoadPetyard(string player )
+        public PetYard LoadPetyard ( string player )
         {
             var petyard = new PetYard( player );
 
