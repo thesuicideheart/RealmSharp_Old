@@ -11,6 +11,35 @@ namespace RealmSharp
 {
     public class Utils
     {
+
+        public static string GetTiffitPetLink ( string player )
+        {
+            var url = "http://www.tiffit.net/RealmInfo/api/pets-of?u={player}";
+            url = url.Replace( "{player}", player );
+            return url;
+        }
+
+        public static string GetTiffitGuildLink ( string guild )
+        {
+            string api = "http://www.tiffit.net/RealmInfo/api/guild?g={guild}&f=";
+            api = api.Replace( "{guild}", guild );
+            return api;
+
+        }
+
+        public static string GetTiffitPlayerLink ( string user )
+        {
+            string api = "http://www.tiffit.net/RealmInfo/api/user?u={user}";
+            api = api.Replace( "{user}", user );
+            return api;
+        }
+
+        public static string [ ] GetArrayFromCommaSeperatedString ( string str )
+        {
+            var arr = str.Split( ',' );
+            return arr;
+        }
+
         public static string GetGraveyardURL ( string player )
         {
             var url = "https://www.realmeye.com/graveyard-of-player/{player}";

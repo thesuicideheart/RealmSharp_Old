@@ -6,15 +6,52 @@ using System.Threading.Tasks;
 
 namespace RealmSharp
 {
+    /// <summary>
+    /// Guild member object
+    /// </summary>
     public class GuildMember
     {
-        public string Name { get; private set; }
-        public string GuildRank { get; private set; }
-        public string LastSeen { get; private set; }
-        public string LastSeenServer { get; private set; }
-        public int Rank { get; private set; }
-        public int Fame { get; private set; }
-        public int Exp { get; private set; }
+        /// <summary>
+        /// Name of the player
+        /// </summary>
+        public string Name { get; internal set; }
+
+        /// <summary>
+        /// The rank of the player
+        /// </summary>
+        public string GuildRank { get; internal set; }
+
+        /// <summary>
+        /// The last seen time
+        /// </summary>
+        public string LastSeen { get; internal set; }
+
+        /// <summary>
+        /// The last seen sever
+        /// </summary>
+        public string LastSeenServer { get; internal set; }
+
+        /// <summary>
+        /// Amount of stars the player has
+        /// </summary>
+        public int Rank { get; internal set; }
+
+        /// <summary>
+        /// The amount of alive fame the player has
+        /// </summary>
+        public int Fame { get; internal set; }
+
+        /// <summary>
+        /// The amount of Exp the player has. 
+        /// </summary>
+        public int Exp { get; internal set; }
+
+        /// <summary>
+        /// The player data object for a guild member
+        /// </summary>
+        //public Player Player { get; internal set; }
+
+        //TODO: Change all Setters function to assign instead;
 
         internal void SetName ( string name )
         {

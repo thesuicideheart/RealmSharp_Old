@@ -6,21 +6,25 @@ using System.Threading.Tasks;
 
 namespace RealmSharp
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class Graveyard
     {
 
-        public List<GraveyardItem> Deaths { get; internal set; } = new List<GraveyardItem>( );
+        /// <summary>
+        /// The list of dead characters
+        /// </summary>
+        public List<GraveyardCharacter> Deaths { get; internal set; } = new List<GraveyardCharacter>( );
+
+        /// <summary>
+        /// The owner of the graveyard
+        /// </summary>
         public string Owner { get; internal set; }
 
-        public Graveyard(string owner )
-        {
-            Owner = owner;
-        }
+        internal Graveyard ( string owner ) => Owner = owner;
 
-        public void Add ( GraveyardItem item )
-        {
-            Deaths.Add( item );
-        }
+        internal void Add ( GraveyardCharacter item ) => Deaths.Add( item );
 
     }
 }

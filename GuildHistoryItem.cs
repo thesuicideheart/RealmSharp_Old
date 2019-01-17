@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace RealmSharp
 {
+    /// <summary>
+    /// Not yet implemented
+    /// </summary>
     public class GuildHistoryItem
     {
     }

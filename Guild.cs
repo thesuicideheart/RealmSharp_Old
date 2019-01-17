@@ -6,20 +6,60 @@ using System.Threading.Tasks;
 
 namespace RealmSharp
 {
+    /// <summary>
+    /// Contains data for a guild
+    /// </summary>
     public class Guild
     {
-        public string Name { get; private set; }
-        public string MostActiveServer { get; private set; }
-        public string MostActiveServerRank { get; private set; }
-        public int Characters { get; private set; }
-        public int Fame { get; private set; }
-        public string FameRank { get; private set; }
-        public int Exp { get; private set; }
-        public string ExpRank { get; private set; }
+        /// <summary>
+        /// Name of the guild
+        /// </summary>
+        public string Name { get; internal set; }
 
-        public string [ ] Description { get; private set; } = new string [ 3 ];
+        /// <summary>
+        /// The guilds most active server
+        /// </summary>
+        public string MostActiveServer { get; internal set; }
 
-        public List<GuildMember> GuildMembers { get; private set; } = new List<GuildMember>( );
+        /// <summary>
+        /// The rank of the guild on the guild's most active server
+        /// </summary>
+        public string MostActiveServerRank { get; internal set; }
+
+        /// <summary>
+        /// The character amount of characters in the guild
+        /// </summary>
+        public int Characters { get; internal set; }
+
+        /// <summary>
+        /// The guild's total alive fame
+        /// </summary>
+        public int Fame { get; internal set; }
+
+        /// <summary>
+        /// The rank of the guild in fame
+        /// </summary>
+        public string FameRank { get; internal set; }
+
+        /// <summary>
+        /// The guild's total alive exp
+        /// </summary>
+        public int Exp { get; internal set; }
+
+        /// <summary>
+        /// The rank of the guild in fame
+        /// </summary>
+        public string ExpRank { get; internal set; }
+
+        /// <summary>
+        /// The 3 lines of description
+        /// </summary>
+        public string [ ] Description { get; internal set; } = new string [ 3 ];
+
+        /// <summary>
+        /// The list of guild members
+        /// </summary>
+        public List<GuildMember> GuildMembers { get; internal set; } = new List<GuildMember>( );
 
         internal void SetName ( string name )
         {

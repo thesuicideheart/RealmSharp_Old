@@ -8,13 +8,36 @@ namespace RealmSharp
 {
     public class Pet
     {
-        public string Name { get; internal set; }
         //public string PetSkin { get; internal set; }
+
+        /// <summary>
+        /// The pet name on realmeye.
+        /// </summary>
+        public string Name { get; internal set; }
+
+        /// <summary>
+        /// Rarity of the pet.(divine, legendary...)
+        /// </summary>
         public string Rarity { get; internal set; }
+
+        /// <summary>
+        /// The family of the pet.(????, Woodland...)
+        /// </summary>
         public string Family { get; internal set; }
+
+        /// <summary>
+        /// The ranking of the pet.
+        /// </summary>
         public string Place { get; internal set; }
+
+        /// <summary>
+        /// The max ability level of the pet.
+        /// </summary>
         public string MaxAbilityLevel { get; internal set; }
 
+        /// <summary>
+        /// the ability stats of the pet
+        /// </summary>
         public PetStats Stats { get; internal set; }
 
 
@@ -34,25 +57,35 @@ namespace RealmSharp
 
     public class PetStats
     {
+
+        /// <summary>
+        /// The name of the first ability
+        /// </summary>
         public string Ability1 { get; internal set; }
+        /// <summary>
+        /// The level of the first ability
+        /// </summary>
         public int Ability1Level { get; internal set; }
-        //public int Ability1Points { get; internal set; }
-        //public int Ability1FeedpowerToNextLevel { get; internal set; }
-        //public int Ability1FeedpowerToMaxLevel { get; internal set; }
-
-
+        
+        /// <summary>
+        /// The name of the second ability
+        /// </summary>
         public string Ability2 { get; internal set; }
+        
+        /// <summary>
+        /// The level of the second ability
+        /// </summary>
         public int Ability2Level { get; internal set; }
-        //public int Ability2Points { get; internal set; }
-        //public int Ability2FeedpowerToNextLevel { get; internal set; }
-        //public int Ability2FeedpowerToMaxLevel { get; internal set; }
 
-
+        /// <summary>
+        /// The name of the third ability
+        /// </summary>
         public string Ability3 { get; internal set; }
+
+        /// <summary>
+        /// The level of the third ability
+        /// </summary>
         public int Ability3Level { get; internal set; }
-        //public int Ability3Points { get; internal set; }
-        //public int Ability3FeedpowerToNextLevel { get; internal set; }
-        //public int Ability3FeedpowerToMaxLevel { get; internal set; }
 
         public override string ToString ( )
         {

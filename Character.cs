@@ -9,16 +9,44 @@ namespace RealmSharp
 {
     public class Character
     {
-        public string Class { get; private set; }
-        public string ClassQuestCompleted { get; private set; }
-        public int Level { get; private set; }
-        public int Fame { get; private set; }
-        public int Exp { get; private set; }
-        public bool HasBackpack { get; private set; }
-        public CharacterEquipment Equipment { get; private set; }
-        public CharacterStats Stats { get; private set; }
-        
-        public Character ( JToken obj )
+        /// <summary>
+        /// The class of the character
+        /// </summary>
+        public string Class { get; internal set; }
+        /// <summary>
+        /// How many class quests has been completed(stars unlocked)
+        /// </summary>
+        public string ClassQuestCompleted { get; internal set; }
+        /// <summary>
+        /// The place of the character in fame
+        /// </summary>
+        public string Place { get; internal set; }
+        /// <summary>
+        /// The level of the character
+        /// </summary>
+        public int Level { get; internal set; }
+        /// <summary>
+        /// The current alive fame of the character
+        /// </summary>
+        public int Fame { get; internal set; }
+        /// <summary>
+        /// The current alive exp of the character
+        /// </summary>
+        public int Exp { get; internal set; }
+        /// <summary>
+        /// Whether the character has a backpack or not
+        /// </summary>
+        public bool HasBackpack { get; internal set; }
+        /// <summary>
+        /// The equipment object of the character
+        /// </summary>
+        public CharacterEquipment Equipment { get; internal set; }
+        /// <summary>
+        /// The character's stats
+        /// </summary>
+        //internal CharacterStats Stats { get; internal set; }
+
+        internal Character ( JToken obj )
         {
             Class = obj [ "class" ].ToString( );
             ClassQuestCompleted = obj [ "class_quests_completed" ].ToString( );
@@ -27,7 +55,12 @@ namespace RealmSharp
             Exp = int.Parse( obj [ "xp" ].ToString( ) );
             Equipment = new CharacterEquipment( obj [ "equipment" ] );
             HasBackpack = Equipment.HasBackpack;
-            Stats = new CharacterStats( );
+            //Stats = new CharacterStats( );
+        }
+
+        internal Character ( )
+        {
+
         }
 
         public override string ToString ( )
@@ -46,5 +79,5 @@ namespace RealmSharp
         }
 
     }
-    
+
 }

@@ -9,6 +9,9 @@ namespace RealmSharp
 {
     public class Player
     {
+        /// <summary>
+        /// The amount of characters the player has alive 
+        /// </summary>
         public int CharacterCount {
             get
             {
@@ -16,20 +19,67 @@ namespace RealmSharp
             }
         }
 
+        /// <summary>
+        /// The amount of skins the player has unlocked
+        /// </summary>
         public int Skins { get; internal set; }
+        
+        /// <summary>
+        /// The amount of fame gained across all alive characters
+        /// </summary>
         public int AliveFame { get; internal set; }
+        
+        /// <summary>
+        /// The amount of exp gained across all alive characters
+        /// </summary>
         public int AliveExp { get; internal set; }
+        
+        /// <summary>
+        /// The rank of the player(in stars)
+        /// </summary>
         public int Rank { get; internal set; }
+
+        /// <summary>
+        /// The amount of fame the player currently has
+        /// </summary>
         public int AccountFame { get; internal set; }
+
+        /// <summary>
+        /// Name of the player
+        /// </summary>
         public string Name { get; internal set; }
+
+        /// <summary>
+        /// The guild rank(founder, leader, officer, member, initate)
+        /// </summary>
         public string GuildRank { get; internal set; }
+
+        /// <summary>
+        /// Date of when account was created
+        /// </summary>
         public string AccountCreatedDate { get; internal set; }
+
+        /// <summary>
+        /// The lines of the description
+        /// </summary>
         public string [ ] Description { get; internal set; } = new string [ 3 ];
+
+        /// <summary>
+        /// The guild name of the player's guild
+        /// </summary>
         public string Guild { get; internal set; }
 
+        /// <summary>
+        /// The server where the player was last seen
+        /// </summary>
+        public string LastSeen { get; internal set; }
+
+        /// <summary>
+        /// A list of characters.
+        /// </summary>
         public List<Character> Characters { get; internal set; } = new List<Character>( );
 
-        public Player ( JObject obj )
+        internal Player ( JObject obj )
         {
             Name = obj [ "name" ].ToString( );
             Skins = int.Parse( obj [ "skins" ].ToString( ) );
@@ -56,10 +106,12 @@ namespace RealmSharp
 
         }
 
-        public Player ( )
+        internal Player ( )
         {
 
         }
+
+        internal Player ( string name ) => Name = name;
 
         public override string ToString ( )
         {
@@ -75,7 +127,7 @@ namespace RealmSharp
 
             for ( int i = 0 ; i < Description.Length ; i++ )
             {
-                descString += $"\tLine {i+1}: {Description[i]}\n";
+                descString += $"\tLine {i + 1}: {Description [ i ]}\n";
             }
 
             return $"Name: {Name}\n" +

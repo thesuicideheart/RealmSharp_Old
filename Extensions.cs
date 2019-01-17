@@ -15,9 +15,14 @@ namespace RealmSharp
             return obj [ key ].ToString();
         }
 
-        internal static bool IsNodeNotNull(this HtmlNode node)
+        internal static bool IsNotNull(this HtmlNode node)
         {
             return node != null;
+        }
+
+        internal static bool IsNotNull(this object obj )
+        {
+            return obj != null;
         }
     }
 }
