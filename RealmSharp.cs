@@ -33,9 +33,10 @@ namespace RealmSharp
 
         /// <summary>
         /// Returns an instance of the API class. Used to get player data
+        /// Using Tiffit's API may make it take a bit longer to load.
         /// </summary>
         /// <param name="UseTiffit">if declared as true, will use tiffit's realm api</param>
-        /// <returns></returns>
+        /// <returns>An instance of RealmSharpAPI class.</returns>
 		public static RealmSharpAPI Init ( bool useTiffit )
         {
             UseTiffit = useTiffit;
